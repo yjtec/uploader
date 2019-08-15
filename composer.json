@@ -1,0 +1,19 @@
+{
+    "name": "yjtec/uploader",
+    "description": "从tp3中提出来的上传类，可以多出应用",
+    "keywords": ["upload", "上传"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ax",
+            "email": "18716463@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Yjtec\\Uploader\\": "src/"
+        }
+    }
+}
