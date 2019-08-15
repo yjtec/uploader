@@ -259,7 +259,7 @@ class Upload {
     private function setDriver($driver = null, $config = null) {
         $driver = $driver ?: ($this->driver ?: 'Local');
         $config = $config ?: ($this->driverConfig ?: []);
-        $class = strpos($driver, '\\') ? $driver : 'Yjtec\\Upload\\Driver\\' . ucfirst(strtolower($driver));
+        $class = strpos($driver, '\\') ? $driver : 'Yjtec\\Uploader\\Upload\\Driver\\' . ucfirst(strtolower($driver));
         $this->uploader = new $class($config);
         if (!$this->uploader) {
             E("不存在上传驱动：{$name}");
