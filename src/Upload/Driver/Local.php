@@ -10,7 +10,7 @@
 // | Author: 麦当苗儿 <zuojiazi@vip.qq.com> <http://www.zjzit.cn>
 // +----------------------------------------------------------------------
 
-namespace Yjtec\Upload\Driver;
+namespace Yjtec\Uploader\Upload\Driver;
 
 class Local {
 
