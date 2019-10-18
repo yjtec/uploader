@@ -199,13 +199,15 @@ class Upload {
                 $file['savepath'] = $this->savePath . $subpath;
             }
 
-            /* 对图像文件进行严格检测 */
-            $ext = strtolower($file['ext']);
-            if (in_array($ext, array('gif', 'jpg', 'jpeg', 'bmp', 'png', 'swf'))) {
-                $imginfo = getimagesize($file['tmp_name']);
-                if (empty($imginfo) || ($ext == 'gif' && empty($imginfo['bits']))) {
-                    $this->error = '非法图像文件！';
-                    continue;
+            if (!$this->config['noExt']) {
+                /* 对图像文件进行严格检测 */
+                $ext = strtolower($file['ext']);
+                if (in_array($ext, array('gif', 'jpg', 'jpeg', 'bmp', 'png', 'swf'))) {
+                    $imginfo = getimagesize($file['tmp_name']);
+                    if (empty($imginfo) || ($ext == 'gif' && empty($imginfo['bits']))) {
+                        $this->error = '非法图像文件！';
+                        continue;
+                    }
                 }
             }
 
@@ -385,7 +387,7 @@ class Upload {
         /* 文件保存后缀，支持强制更改文件后缀 */
         $ext = empty($this->config['saveExt']) ? $file['ext'] : $this->saveExt;
 
-        return $savename . ($this->noExt ? "" : '.' . $ext);
+        return $savename . ($this->config['noExt'] ? "" : '.' . $ext);
     }
 
     /**
